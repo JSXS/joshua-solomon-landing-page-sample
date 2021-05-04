@@ -21,12 +21,14 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test: /\.svg?component=true$/,
+                test: /\.svg$/,
+                issuer: /\.(js|jsx)$/,
                 loader: "@svgr/webpack"
             },
             {
                 test: /\.svg$/,
-                loader: "@svgr/webpack"
+                issuer: /\.css$/,
+                loader: "file-loader"
             },
             {
                 test: /\.(eot|woff(2)?|ttf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
