@@ -11,7 +11,7 @@ const SuccessMessage = () => {
         return null;
     }
 
-    return <div className="success">
+    return <div className="success alert alert-success">
         Thank You
     </div>
 }
