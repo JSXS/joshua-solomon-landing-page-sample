@@ -21,13 +21,12 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test: /\.(png|jpg|gif|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-                loader: "file-loader",
-                options: {
-                    name: "[name].[ext]",
-                    outputPath: "dist/resources/images",
-                    publicPath: "dist/resources/images"
-                }
+                test: /\.svg?component=true$/,
+                loader: "@svgr/webpack"
+            },
+            {
+                test: /\.svg$/,
+                loader: "@svgr/webpack"
             },
             {
                 test: /\.(eot|woff(2)?|ttf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,

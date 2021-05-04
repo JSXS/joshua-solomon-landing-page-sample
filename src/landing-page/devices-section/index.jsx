@@ -1,10 +1,10 @@
 import React from "react";
-import "./index.css";
+import Devices from "../../resources/devices.svg?component=true";
 
 const DevicesSection = () => {
 
     return <div className="devices-section">
-
+        <Devices />
     </div>
 }
 
