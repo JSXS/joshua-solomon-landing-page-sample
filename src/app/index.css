@@ -24,7 +24,6 @@ h1, h2 { text-align:  start;}
     padding: 1rem;
 }
 
-
 @media (max-width: 768px) {
 
     #app-container { 
