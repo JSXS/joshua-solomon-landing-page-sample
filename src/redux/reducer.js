@@ -7,6 +7,8 @@ const reducer = (state, action) => {
 
         case ActionTypes.SET_EMAIL:
             return setEmail(state, action);
+        case ActionTypes.TOGGLE_DISPLAY_SUCCESS_IS_VISIBLE:
+            return toggleDisplaySuccessIsVisible(state, action);
         case ActionTypes.TOGGLE_TERMS_AND_CONDITIONS:
             return toggleTermsAndConditions(state);
         default:
@@ -22,9 +24,16 @@ const setEmail = (state, action) => {
     return newState;
 }
 
+const toggleDisplaySuccessIsVisible = (state, action) => {
+
+    const newState = clone(state);
+    newState.successMessageIsVisible = action.isVisible ?? !newState.successMessageIsVisible;
+    return newState;
+}
+
 const toggleTermsAndConditions = (state) => {
 
     const newState = clone(state);
-    newState.terms_and_conditions = !newState.terms_and_conditions;
+    newState.termsAndConditions = !newState.termsAndConditions;
     return newState;
 }

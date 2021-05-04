@@ -2,7 +2,8 @@ import { clone } from "lodash";
 
 const initialState = {
     email: "",
-    terms_and_conditions: false
+    successMessageIsVisible: false,
+    termsAndConditions: false
 }
 
 export const getInitialState = () => clone(initialState);

@@ -1,13 +1,13 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { clickSignUpButton, setEmail, toggleTermsAndConditions } from "../../../redux/actions";
-import { emailValueSelector, termsAndConditionsSelector } from "../../../redux/selectors";
+import { emailSelector, termsAndConditionsSelector } from "../../../redux/selectors";
 import "./index.css";
 
 const Form = () => {
 
     const dispatch = useDispatch();
-    const emailValue = useSelector(emailValueSelector);
+    const emailValue = useSelector(emailSelector);
     const onEmailChange = (event) => dispatch(setEmail(event?.target?.value));
     const termsAndConditionsChecked = useSelector(termsAndConditionsSelector);
     const onTermsAndConditionsChange = (event) => dispatch(toggleTermsAndConditions(event?.target?.checked));
