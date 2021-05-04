@@ -1,8 +1,8 @@
 {
   "name": "joshua-solomon-landing-page-sample",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Sample Landing Page by Joshua Solomon",
-  "main": "src/app.jsx",
+  "main": "src/app/index.jsx",
   "author": "Joshua Solomon",
   "license": "ISC",
   "dependencies": {

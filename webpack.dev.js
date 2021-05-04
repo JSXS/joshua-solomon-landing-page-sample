@@ -12,8 +12,5 @@ module.exports = merge(common, {
         contentBase: distPath,
         hot: true,
         historyApiFallback: true
-    },
-    // optimization: {
-    //     usedExports: true
-    // }
+    }
 });
