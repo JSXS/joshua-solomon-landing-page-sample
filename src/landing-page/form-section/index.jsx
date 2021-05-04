@@ -7,7 +7,7 @@ const TAGLINE_TEXT = "Help us solve fusion :) Or something smaller like a good h
 
 const FormSection = () => {
 
-    return <div className="form-section">
+    return <div className="form-section p-4 d-flex flex-column justify-content-center align-items-start w-100">
         <h1>{HEADER_TEXT}</h1>
         <h2>{TAGLINE_TEXT}</h2>
         <Form />

@@ -1,0 +1,10 @@
+.success{
+    position: fixed;
+    top: 5rem;
+    opacity: 100%;
+    transition: opacity 250ms;
+}
+
+.success.hidden {
+    opacity: 0;
+}

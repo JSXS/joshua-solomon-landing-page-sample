@@ -6,12 +6,9 @@ import "./index.css";
 const SuccessMessage = () => {
 
     const isVisible = useSelector(successMessageIsVisibleSelector);
+    const className = `success alert alert-success ${isVisible ? "visible" : "hidden"}`;
 
-    if (!isVisible) {
-        return null;
-    }
-
-    return <div className="success alert alert-success">
+    return <div className={className}>
         Thank You
     </div>
 }

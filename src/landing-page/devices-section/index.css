@@ -1,0 +1,16 @@
+
+.devices-section{ 
+    padding: 0 1rem !important;
+}
+
+.devices-section svg{
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+
+    .devices-section{ 
+        width: 75% !important;
+    }
+}

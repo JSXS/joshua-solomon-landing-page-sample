@@ -14,11 +14,30 @@ const Form = () => {
     const onClickSignUpButton = (event) => { event.preventDefault(); dispatch(clickSignUpButton()); };
 
     return <form>
-        <label htmlFor={"email"}>Email address</label>
-        <input type={"email"} name={"email"} value={emailValue} onChange={onEmailChange} />
-        <input type={"checkbox"} name={"terms_and_conditions"} value={"terms_and_conditions"} checked={termsAndConditionsChecked} onChange={onTermsAndConditionsChange} />
-        <label htmlFor={"terms_and_conditions"}>I agree to the terms and conditions</label>
-        <input type={"submit"} value={"Sign Up"} onClick={onClickSignUpButton} />
+        <div className={"d-flex mb-3 flex-column"}>
+            <label htmlFor={"email"}>Email address</label>
+            <input
+                className={"email-input w-100 border border-1 p-2"}
+                type={"email"}
+                name={"email"}
+                value={emailValue}
+                onChange={onEmailChange} />
+        </div>
+        <div className="mb-3">
+            <input
+                className={"terms-and-conditions-checkbox mr-2"}
+                type={"checkbox"}
+                name={"terms_and_conditions"}
+                value={"terms_and_conditions"}
+                checked={termsAndConditionsChecked}
+                onChange={onTermsAndConditionsChange} />
+            <label htmlFor={"terms_and_conditions"}>I agree to the terms and conditions</label>
+        </div>
+        <input
+            className={"sign-up-button w-100 border-0 p-2"}
+            type={"submit"}
+            value={"Sign Up"}
+            onClick={onClickSignUpButton} />
     </form>
 }
 

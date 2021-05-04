@@ -4,7 +4,6 @@ import { Provider } from "react-redux";
 import store from "../redux";
 import DevicesSection from "./devices-section";
 import FormSection from "./form-section";
-import "./index.css";
 import SuccessMessage from "./success";
 
 const LandingPage = () => <Provider store={store}>

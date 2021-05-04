@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
     context: __dirname,
     entry: {
-        app: "./src/app.jsx",
+        app: "./src/app/index.jsx",
     },
     module: {
         rules: [
@@ -48,7 +48,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             title: "Subscribe Now",
-            template: "./src/webpack-template.html",
+            template: "./src/app/webpack-template.html",
             filename: "index.html",
             chunks: ["app"]
         })
