@@ -1,5 +1,5 @@
 import "core-js";
-import { call, debounce, delay, put, select, takeEvery } from "redux-saga/effects";
+import { call, debounce, delay, fork, put, select, takeEvery } from "redux-saga/effects";
 import "regenerator-runtime/runtime";
 import validator from "validator";
 import { ActionTypes, setEmail, setResponse, toggleEmailError, toggleIsPending, toggleTermsAndConditions, toggleTermsAndConditionsError } from "./actions";
@@ -98,7 +98,7 @@ function* postForm() {
 
     if (response.status === 200) {
 
-        yield call(displayResponse, "Thank You.", "success");
+        yield fork(displayResponse, "Thank You.", "success");
 
     } else {
 
