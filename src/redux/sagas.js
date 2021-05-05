@@ -116,13 +116,7 @@ function* postForm() {
 }
 
 function* displayFormErrorMessage(emailError, termsAndConditionsError) {
-
-    console.log("emailError: ", emailError);
-    console.log("termsAndConditionsError: ", termsAndConditionsError);
-
     yield call(toggleErrors, emailError, termsAndConditionsError);
-
-
     yield call(displayResponse, `${emailError ?? ""} ${termsAndConditionsError ?? ""}`, "warning");
 }
 
