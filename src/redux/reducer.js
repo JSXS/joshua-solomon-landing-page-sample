@@ -11,6 +11,8 @@ const reducer = (state, action) => {
             return toggleDisplaySuccessIsVisible(state, action);
         case ActionTypes.TOGGLE_EMAIL_ERROR:
             return toggleEmailError(state, action);
+        case ActionTypes.TOGGLE_IS_PENDING:
+            return toggleIsPending(state, action);
         case ActionTypes.TOGGLE_TERMS_AND_CONDITIONS:
             return toggleTermsAndConditions(state);
         case ActionTypes.TOGGLE_TERMS_AND_CONDITIONS_ERROR:
@@ -39,6 +41,13 @@ const toggleEmailError = (state, action) => {
 
     const newState = clone(state);
     newState.emailError = action.error ?? !newState.emailError;
+    return newState;
+}
+
+const toggleIsPending = (state, action) => {
+
+    const newState = clone(state);
+    newState.isPending = action.isPending ?? !newState.isPending;
     return newState;
 }
 

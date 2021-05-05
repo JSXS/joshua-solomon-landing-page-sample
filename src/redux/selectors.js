@@ -9,6 +9,9 @@ export const emailSelector = createSelector(stateSelector, emailCombiner);
 const emailErrorCombiner = (state) => state.emailError;
 export const emailErrorSelector = createSelector(stateSelector, emailErrorCombiner);
 
+const isPendingCombiner = (state) => state.isPending;
+export const isPendingSelector = createSelector(stateSelector, isPendingCombiner);
+
 const successMessageIsVisibleCombiner = (state) => state.successMessageIsVisible;
 export const successMessageIsVisibleSelector = createSelector(stateSelector, successMessageIsVisibleCombiner);
 

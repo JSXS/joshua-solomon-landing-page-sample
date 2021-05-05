@@ -3,7 +3,7 @@ import fetch from 'cross-fetch';
 import { call, debounce, delay, put, select, takeEvery } from "redux-saga/effects";
 import "regenerator-runtime/runtime";
 import validator from "validator";
-import { ActionTypes, setEmail, toggleDisplaySuccessIsVisible, toggleEmailError, toggleTermsAndConditions, toggleTermsAndConditionsError } from "./actions";
+import { ActionTypes, setEmail, toggleDisplaySuccessIsVisible, toggleEmailError, toggleIsPending, toggleTermsAndConditions, toggleTermsAndConditionsError } from "./actions";
 import { emailErrorSelector, emailIsValidSelector, requestBodySelector, signUpButtonIsDisabledSelector, termsAndConditionsErrorSelector, termsAndConditionsSelector } from "./selectors";
 
 const DEBOUNCE_MS = 500;
@@ -79,8 +79,12 @@ function* clickSignUpButtonWorker() {
 
 function* postForm() {
 
+    yield put(toggleIsPending(true));
+
     const body = yield select(requestBodySelector);
     const response = yield call(fetch, "https://defero.dev/api/test/josh", { method: "post", headers: { "Content-Type": "application/json" }, body });
+
+    yield put(toggleIsPending(false));
 
     if (response?.status === 200) {
 

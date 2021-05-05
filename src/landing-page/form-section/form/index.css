@@ -12,6 +12,23 @@ form {
     cursor: pointer;
 }
 
+.spinner{
+    transition: width 250ms;
+}
+
+.spinner svg {
+    width: 100%;
+    height: 2.1rem;
+}
+
+.spinner.visible{
+    width: 2.1rem;
+}
+
+.spinner.hidden{
+    width: 0;
+}
+
 @media (max-width: 768px) {
 
     form{         
