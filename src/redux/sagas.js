@@ -73,10 +73,10 @@ function* clickSignUpButtonWorker() {
 
         const email = yield select(emailSelector);
         const emailIsValid = yield select(emailIsValidSelector);
-        const emailError = email ? emailIsValid ? null : ERROR_MESSAGES.EMAIL_INVALID : ERROR_MESSAGES.EMAIL_NOT_SUPPLIED;
+        const emailError = email ? emailIsValid ? false : ERROR_MESSAGES.EMAIL_INVALID : ERROR_MESSAGES.EMAIL_NOT_SUPPLIED;
 
         const termsAndConditions = yield select(termsAndConditionsSelector);
-        const termsAndConditionsError = termsAndConditions ? null : ERROR_MESSAGES.TERMS_AND_CONDITIONS;
+        const termsAndConditionsError = termsAndConditions ? false : ERROR_MESSAGES.TERMS_AND_CONDITIONS;
 
         yield call(displayFormErrorMessage, emailError, termsAndConditionsError);
 
@@ -104,11 +104,11 @@ function* postForm() {
 
         if (data.errors) {
 
-            yield call(displayFormErrorMessage, data.errors.email, data.errors.terms_and_conditions);
+            yield fork(displayFormErrorMessage, data.errors.email, data.errors.terms_and_conditions);
 
         } else {
 
-            yield call(displayResponse, "There was an error submitting the form.", "danger");
+            yield fork(displayResponse, "There was an error submitting the form.", "danger");
         }
     }
 
@@ -116,7 +116,13 @@ function* postForm() {
 }
 
 function* displayFormErrorMessage(emailError, termsAndConditionsError) {
+
+    console.log("emailError: ", emailError);
+    console.log("termsAndConditionsError: ", termsAndConditionsError);
+
     yield call(toggleErrors, emailError, termsAndConditionsError);
+
+
     yield call(displayResponse, `${emailError ?? ""} ${termsAndConditionsError ?? ""}`, "warning");
 }
 

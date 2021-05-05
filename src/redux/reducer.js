@@ -41,7 +41,7 @@ const setResponse = (state, action) => {
 const toggleEmailError = (state, action) => {
 
     const newState = clone(state);
-    newState.emailError = Boolean(action.error ?? !newState.emailError);
+    newState.emailError = Boolean(action.error ?? false);
     return newState;
 }
 
@@ -62,6 +62,6 @@ const toggleTermsAndConditions = (state) => {
 const toggleTermsAndConditionsError = (state, action) => {
 
     const newState = clone(state);
-    newState.termsAndConditionsError = Boolean(action.error ?? !newState.termsAndConditionsError);
+    newState.termsAndConditionsError = Boolean(action.error ?? false);
     return newState;
 }
