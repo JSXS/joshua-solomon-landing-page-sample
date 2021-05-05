@@ -24,7 +24,7 @@ export const termsAndConditionsSelector = createSelector(stateSelector, termsAnd
 const termsAndConditionsErrorCombiner = (state) => state.termsAndConditionsError;
 export const termsAndConditionsErrorSelector = createSelector(stateSelector, termsAndConditionsErrorCombiner);
 
-const requestBodyCombiner = (email, terms_and_conditions) => JSON.stringify({ email, terms_and_conditions });
+const requestBodyCombiner = (email, terms_and_conditions) => JSON.stringify({ email, terms_and_conditions: terms_and_conditions || null });
 export const requestBodySelector = createSelector(emailSelector, termsAndConditionsSelector, requestBodyCombiner);
 
 export const emailIsValidSelector = createSelector(emailSelector, validator.isEmail);
