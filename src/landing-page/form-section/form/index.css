@@ -2,6 +2,12 @@ form {
     padding: 0 5rem;
 }
 
+
+.sign-up-button.disabled {
+    cursor: not-allowed;
+}
+
+
 .terms-and-conditions-checkbox {
     cursor: pointer;
 }
