@@ -3,11 +3,11 @@ import fetch from 'cross-fetch';
 import { call, debounce, delay, put, select, takeEvery } from "redux-saga/effects";
 import "regenerator-runtime/runtime";
 import validator from "validator";
-import { ActionTypes, setEmail, toggleDisplaySuccessIsVisible, toggleEmailError, toggleIsPending, toggleTermsAndConditions, toggleTermsAndConditionsError } from "./actions";
+import { ActionTypes, setEmail, setResponse, toggleEmailError, toggleIsPending, toggleTermsAndConditions, toggleTermsAndConditionsError } from "./actions";
 import { emailErrorSelector, emailIsValidSelector, requestBodySelector, signUpButtonIsDisabledSelector, termsAndConditionsErrorSelector, termsAndConditionsSelector } from "./selectors";
 
 const DEBOUNCE_MS = 500;
-const DISPLAY_SUCCESS_MS = 5000;
+const DISPLAY_RESPONSE_MESSAGE_MS = 5000;
 
 const watchers = {
     changeEmailWatcher,
@@ -92,26 +92,26 @@ function* postForm() {
 
         if (errors) {
 
-            const emailError = false; //TODO Get email error from errors.
-            const termsAndConditionsError = false; //TODO Get terms and conditions error from errors.
+            const emailError = true; //TODO Get email error from errors.
+            const termsAndConditionsError = true; //TODO Get terms and conditions error from errors.
             yield call(toggleErrors, emailError, termsAndConditionsError);
+            yield call(displayResponse, "Please complete the form.", "warning");
 
         } else {
 
-            yield call(displaySuccess);
+            yield call(displayResponse, "Thank You.", "success");
         }
 
     } else {
 
-        //TODO Display error message.
-        console.warn(response);
+        yield call(displayResponse, "There was an error submitting the form.", "danger");
     }
 }
 
-function* displaySuccess() {
-    yield put(toggleDisplaySuccessIsVisible(true));
-    yield delay(DISPLAY_SUCCESS_MS);
-    yield put(toggleDisplaySuccessIsVisible(false));
+function* displayResponse(message, status) {
+    yield put(setResponse(message, status));
+    yield delay(DISPLAY_RESPONSE_MESSAGE_MS);
+    yield put(setResponse(null, null));
 }
 
 function* toggleErrors(emailError, termsAndConditionsError) {

@@ -4,12 +4,12 @@ import { Provider } from "react-redux";
 import store from "../redux";
 import DevicesSection from "./devices-section";
 import FormSection from "./form-section";
-import SuccessMessage from "./success";
+import ResponseMessage from "./response-message";
 
 const LandingPage = () => <Provider store={store}>
     <FormSection />
     <DevicesSection />
-    <SuccessMessage />
+    <ResponseMessage />
 </Provider>;
 
 export default LandingPage;

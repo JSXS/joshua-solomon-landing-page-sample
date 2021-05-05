@@ -12,8 +12,11 @@ export const emailErrorSelector = createSelector(stateSelector, emailErrorCombin
 const isPendingCombiner = (state) => state.isPending;
 export const isPendingSelector = createSelector(stateSelector, isPendingCombiner);
 
-const successMessageIsVisibleCombiner = (state) => state.successMessageIsVisible;
-export const successMessageIsVisibleSelector = createSelector(stateSelector, successMessageIsVisibleCombiner);
+const responseMessageCombiner = (state) => state.responseMessage;
+export const responseMessageSelector = createSelector(stateSelector, responseMessageCombiner);
+
+const responseStatusCombiner = (state) => state.responseStatus;
+export const responseStatusSelector = createSelector(stateSelector, responseStatusCombiner);
 
 const termsAndConditionsCombiner = (state) => state.termsAndConditions;
 export const termsAndConditionsSelector = createSelector(stateSelector, termsAndConditionsCombiner);

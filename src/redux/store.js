@@ -4,7 +4,8 @@ const initialState = {
     email: "",
     emailError: false,
     isPending: false,
-    successMessageIsVisible: false,
+    responseMessage: null,
+    responseStatus: null,
     termsAndConditions: false,
     termsAndConditionsError: false
 }

@@ -7,8 +7,8 @@ const reducer = (state, action) => {
 
         case ActionTypes.SET_EMAIL:
             return setEmail(state, action);
-        case ActionTypes.TOGGLE_DISPLAY_SUCCESS_IS_VISIBLE:
-            return toggleDisplaySuccessIsVisible(state, action);
+        case ActionTypes.SET_RESPONSE:
+            return setResponse(state, action);
         case ActionTypes.TOGGLE_EMAIL_ERROR:
             return toggleEmailError(state, action);
         case ActionTypes.TOGGLE_IS_PENDING:
@@ -30,10 +30,11 @@ const setEmail = (state, action) => {
     return newState;
 }
 
-const toggleDisplaySuccessIsVisible = (state, action) => {
+const setResponse = (state, action) => {
 
     const newState = clone(state);
-    newState.successMessageIsVisible = action.isVisible ?? !newState.successMessageIsVisible;
+    newState.responseMessage = action.message;
+    newState.responseStatus = action.status;
     return newState;
 }
 
